@@ -28,7 +28,7 @@ function(file, record) {
     	if (trans.type == record.Type.ITEM_FULFILLMENT) {
         	log.audit({title: 'Trans Type is item fulfillment'});
     		if (form == 'Azalea Ecomm Item Fulfillment Form') {
-			log.debug({title:'shipcarrier/method sublist', details: trans.getSublists});	
+			log.debug({title:'shipcarrier/method sublist', details: trans.getSublists()});	
     			return;
     		}
     	}
