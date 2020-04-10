@@ -1,0 +1,2 @@
+# netsuite
+scripts etc 
