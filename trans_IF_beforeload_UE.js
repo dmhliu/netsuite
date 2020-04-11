@@ -28,7 +28,15 @@ function(file, record) {
     	if (trans.type == record.Type.ITEM_FULFILLMENT) {
         	log.audit({title: 'Trans Type is item fulfillment'});
     		if (form == 'Azalea Ecomm Item Fulfillment Form') {
-			log.debug({title:'shipcarrier/method sublist', details: trans.getSublists()});	
+			log.debug({title:'BL getsublists', details: trans.getSublists()});
+			log.debug({title:'BL carrierform', details: trans.getValue({fieldId: 'carrierform'}) });
+			log.debug({title:'BL shipcarrier', details: trans.getValue({fieldId: 'shipmethod'}) });	
+			log.debug({title:'BL createdfrom', details: trans.getValue({fieldId: 'createdfrom'}) });
+			log.debug({title:'BL integratedlabel', details: trans.getValue({fieldId: 'generateintegratedshipperlabel'}) });
+			log.debug({title:'BL carrierform', details: trans.getFields()});
+			//will try to set carrierform 
+			trans.setValue({fieldId: 'generatereturnlabel', value: false});
+				
     			return;
     		}
     	}
