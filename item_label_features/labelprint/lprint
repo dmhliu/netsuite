@@ -1,0 +1,12 @@
+#!/bin/bash
+ITEMLABELPRINTER=`lpstat -a    | awk '{print $1}' | grep item-label-printer`
+JEWELRYLABELPRINTER=`lpstat -a | awk '{print $1}' | grep jewelry-label-printer`
+SHIPLABELPRINTER=`lpstat -a    | awk '{print $1}' | grep ship-label-printer`
+
+if [[ $1 == INTEGRATE* ]]; then
+   lpr -P $SHIPLABELPRINTER -o raw "$1"
+else 
+   lpr -P "$ITEMLABELPRINTER" -o raw "$1"
+
+fi 
+
